@@ -19,7 +19,7 @@ function Searched() {
     getSearched(params.search);
   }, [params.search]);
 
-  if (searchedRecipes.length == 0) {
+  if (searchedRecipes.length === 0) {
     console.log("Error");
     return (
       <Error>
