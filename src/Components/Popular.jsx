@@ -8,7 +8,7 @@ function Popular() {
   const [popular, setPopular] = useState([]);
 
   useEffect(() => {
-    getPopular();
+    getPopular( );
   }, []);
 
   const getPopular = async () => {
