@@ -1,6 +1,6 @@
 import Veggie from "../Components/Veggie";
 import Popular from "../Components/Popular";
-import { animate, motion } from "framer-motion";
+import {motion } from "framer-motion";
 
 function Home() {
   return (
