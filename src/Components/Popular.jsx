@@ -7,26 +7,17 @@ import { Link } from "react-router-dom";
 function Popular() {
   const [popular, setPopular] = useState([]);
 
-  useEffect(() => {
-    getPopular( );
-  }, []);
+  useEffect(()=>{
+    getPopular()
+  },[])
 
-  const getPopular = async () => {
-    const Check = localStorage.getItem("popular");
+  const getPopular = async ()=>{
+    const api =await fetch(`https://api.spoonacular.com/recipes/random?apiKey=${process.env.REACT_APP_API_KEY}&number=9`);
 
-    if (Check) {
-      setPopular(JSON.parse(Check));
-    } else {
-      const api = await fetch(
-        `https://api.spoonacular.com/recipes/random?apiKey=${process.env.REACT_APP_API_KEY}&number=9`
-      );
+    const data= await api.json();
+    setPopular(data.recipes)
+  }
 
-      const data = await api.json();
-      localStorage.setItem("popular", JSON.stringify(data.recipes));
-      setPopular(data.recipes);
-      console.log(popular);
-    }
-  };
 
   return (
     <Wrapper>
